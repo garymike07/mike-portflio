@@ -127,16 +127,7 @@ const Experience = () => {
         </div>
 
         {/* Ongoing Work Highlight */}
-        <div className="mt-16 glass rounded-2xl p-8 text-center hover-lift">
-          <div className="flex items-center justify-center mb-4">
-            <div className="w-3 h-3 rounded-full bg-accent-neon animate-glow-pulse mr-3" />
-            <span className="text-accent-neon font-medium">Ongoing</span>
-          </div>
-          
-          <p className="text-foreground-muted mb-2">{ongoingWork.period}</p>
-          <p className="text-foreground-subtle mb-4">{ongoingWork.description}</p>
-          <p className="text-primary font-medium">{ongoingWork.stats}</p>
-        </div>
+        
       </div>
     </section>;
 };
