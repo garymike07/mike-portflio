@@ -98,14 +98,9 @@ const Education = () => {
                 <p className="text-foreground-muted mb-4 leading-relaxed">{edu.description}</p>
 
                 <div>
-                  <h5 className="text-sm font-semibold text-foreground mb-3">Key Highlights:</h5>
+                  
                   <div className="grid md:grid-cols-2 gap-2">
-                    {edu.highlights.map((highlight, hIndex) => (
-                      <div key={hIndex} className="flex items-start text-sm text-foreground-muted">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent-electric mt-2 mr-3 flex-shrink-0" />
-                        {highlight}
-                      </div>
-                    ))}
+                    {edu.highlights.map((highlight, hIndex) => {})}
                   </div>
                 </div>
               </div>)}
