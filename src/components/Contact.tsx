@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Linkedin, Github, Send, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, Send, MessageCircle, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -19,6 +19,13 @@ const Contact = () => {
       value: 'wrootmike@gmail.com',
       href: 'mailto:wrootmike@gmail.com',
       color: 'text-accent-neon'
+    },
+    {
+      icon: Globe,
+      label: 'Website',
+      value: 'mike-portfolio.vercel.app',
+      href: 'https://mike-portfolio.vercel.app',
+      color: 'text-accent-pink'
     },
     {
       icon: MapPin,

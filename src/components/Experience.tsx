@@ -6,20 +6,32 @@ const Experience = () => {
     company: 'Council of Legal Education',
     period: 'Jan 2024 – Feb 2025',
     location: 'Kenya',
-    type: 'Current Position',
-    description: 'Leading IT support operations across multiple offices with focus on system optimization and user experience.',
-    achievements: ['Provide tier-1 & tier-2 IT support for 200+ staff across four offices', 'Automated system-health checks, reducing incident response time by 25%', 'Led SharePoint Online migration with zero data loss and minimal downtime', 'Implemented network security protocols and monitoring systems'],
+    type: 'Internship',
+    description: 'Delivered comprehensive tier-1 & tier-2 IT support and led key digital initiatives across the organization.',
+    achievements: [
+      'Delivered comprehensive tier-1 & tier-2 IT support to 200+ staff across four regional offices.',
+      'Engineered PowerShell automation scripts reducing incident response time by 25%.',
+      'Orchestrated enterprise-wide migration to SharePoint Online with zero data loss.',
+      'Implemented robust backup strategies ensuring 99.9% system availability.',
+      'Conducted staff training sessions increasing digital literacy across organization.'
+    ],
     icon: Award,
     color: 'accent-electric',
     gradient: 'from-accent-electric/20 to-accent-electric/5'
   }, {
     title: 'IEBC ICT Officer',
-    company: 'Independent Electoral and Boundaries Commission',
+    company: 'Independent Electoral & Boundaries Commission – Gatundu South',
     period: 'Aug 2022',
     location: 'Kenya',
     type: 'Contract',
-    description: 'Ensured electoral technology infrastructure reliability during critical election period.',
-    achievements: ['Maintained 80+ KEIMS kits with 99.9% uptime during election period', 'Set up secure network infrastructure for polling stations', 'Trained 100+ temporary clerks on electoral technology systems', 'Developed real-time monitoring dashboard for voter turnout data'],
+    description: 'Configured, maintained, and supported election technology infrastructure during a critical period.',
+    achievements: [
+      'Configured and maintained 80+ KEIMS kits achieving 99.9% uptime during elections.',
+      'Architected secure LAN/WAN infrastructure for constituency tallying center.',
+      'Provided real-time network troubleshooting with <5 minute resolution time.',
+      'Trained 100+ temporary election clerks on system operation.',
+      'Developed emergency response procedures adopted by other constituencies.'
+    ],
     icon: Shield,
     color: 'accent-neon',
     gradient: 'from-accent-neon/20 to-accent-neon/5'
@@ -29,19 +41,31 @@ const Experience = () => {
     period: 'Jan 2023 – Apr 2023',
     location: 'Gatundu, Kenya',
     type: 'Attachment',
-    description: 'Modernized court IT infrastructure and improved case management systems.',
-    achievements: ['Resolved tickets within SLA 95% of the time', 'Updated Judiciary CMS weekly with 100% accuracy', 'Documented network topology and created comprehensive SOPs', 'Developed proof-of-concept e-filing portal reducing physical backlog by 60%'],
+    description: 'Maintained systems and improved process efficiency within the judiciary environment.',
+    achievements: [
+      'Managed high-priority support tickets maintaining 95% SLA compliance.',
+      'Performed weekly updates on Judiciary Case Management System (CMS).',
+      'Created comprehensive network documentation and SOPs.',
+      'Implemented proactive monitoring reducing system downtime by 40%.',
+      'Collaborated with legal staff to improve case processing efficiency.'
+    ],
     icon: Users,
     color: 'accent-purple',
     gradient: 'from-accent-purple/20 to-accent-purple/5'
   }, {
-    title: 'Junior Software Developer',
-    company: 'Freelance',
+    title: 'Junior Software Developer (Freelance)',
+    company: 'Self-Employed',
     period: 'Jul 2021 – Feb 2022',
     location: 'Remote',
     type: 'Freelance',
-    description: 'Developed custom web solutions for small and medium enterprises with focus on performance and SEO.',
-    achievements: ['Built 6 responsive websites for local SMEs with modern frameworks', 'Achieved Google Page-1 rankings for 3 client websites', 'Integrated payment APIs, boosting client revenue by 40%', 'Maintained 98/100 average Lighthouse performance scores'],
+    description: 'Built and optimized client-facing web applications and integrations with a focus on performance and SEO.',
+    achievements: [
+      'Architected and deployed 6 responsive, SEO-optimized websites using React.',
+      'Integrated payment systems (PayPal, M-Pesa APIs) generating 40% revenue increase.',
+      'Developed reusable React components reducing development time by 30%.',
+      'Achieved 50% faster page load times through performance optimization.',
+      'Established long-term client relationships with 90% retention rate.'
+    ],
     icon: TrendingUp,
     color: 'accent-pink',
     gradient: 'from-accent-pink/20 to-accent-pink/5'
@@ -49,8 +73,8 @@ const Experience = () => {
   const ongoingWork = {
     title: 'Freelance Graphic Designer',
     period: 'Feb 2021 – Present',
-    description: 'Creating visual identities and digital assets for various clients',
-    stats: '50+ creative assets designed with 80% client engagement increase'
+    description: 'Created 50+ brand identity packages and delivered end-to-end design solutions.',
+    stats: '80% of clients reported increased engagement; productivity up 60% via automated workflows'
   };
   return <section id="experience" className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -127,7 +151,7 @@ const Experience = () => {
         </div>
 
         {/* Ongoing Work Highlight */}
-        
+        {/* Additional highlight could be rendered here if needed */}
       </div>
     </section>;
 };

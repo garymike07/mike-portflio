@@ -7,29 +7,51 @@ const Skills = () => {
 
   const skillCategories = [
     {
-      title: 'Programming Languages',
-      icon: Code,
-      color: 'text-accent-electric',
-      gradient: 'from-accent-electric/20 to-accent-electric/5',
-      skills: [
-        { name: 'JavaScript', level: 90 },
-        { name: 'Python', level: 85 },
-        { name: 'Java', level: 80 },
-        { name: 'Perl', level: 70 },
-        { name: 'SQL', level: 85 },
-      ]
-    },
-    {
-      title: 'Web Technologies',
+      title: 'Frontend',
       icon: Globe,
       color: 'text-accent-neon',
       gradient: 'from-accent-neon/20 to-accent-neon/5',
       skills: [
-        { name: 'HTML5 & CSS3', level: 95 },
         { name: 'React', level: 90 },
-        { name: 'Node.js', level: 85 },
+        { name: 'Next.js', level: 85 },
+        { name: 'JavaScript (ES6+)', level: 90 },
+        { name: 'HTML5 & CSS3', level: 95 },
         { name: 'Bootstrap', level: 88 },
-        { name: 'XML', level: 75 },
+        { name: 'Responsive Design', level: 92 },
+        { name: 'PWA', level: 80 },
+        { name: 'Performance Optimization', level: 88 },
+      ]
+    },
+    {
+      title: 'Backend',
+      icon: Code,
+      color: 'text-accent-electric',
+      gradient: 'from-accent-electric/20 to-accent-electric/5',
+      skills: [
+        { name: 'Node.js', level: 85 },
+        { name: 'Python', level: 85 },
+        { name: 'Java', level: 80 },
+        { name: 'Spring Boot', level: 75 },
+        { name: 'RESTful APIs', level: 90 },
+        { name: 'GraphQL', level: 75 },
+        { name: 'Microservices', level: 75 },
+        { name: 'Auth (Authentication & Authorization)', level: 85 },
+      ]
+    },
+    {
+      title: 'Databases',
+      icon: Database,
+      color: 'text-accent-neon',
+      gradient: 'from-accent-neon/20 to-accent-neon/5',
+      skills: [
+        { name: 'MySQL', level: 85 },
+        { name: 'PostgreSQL', level: 85 },
+        { name: 'Supabase', level: 80 },
+        { name: 'Firebase', level: 80 },
+        { name: 'Convex', level: 70 },
+        { name: 'MongoDB', level: 80 },
+        { name: 'Database Optimization', level: 80 },
+        { name: 'Data Migration & Recovery', level: 78 },
       ]
     },
     {
@@ -38,48 +60,26 @@ const Skills = () => {
       color: 'text-accent-purple',
       gradient: 'from-accent-purple/20 to-accent-purple/5',
       skills: [
-        { name: 'AWS (EC2, S3, IAM)', level: 80 },
+        { name: 'AWS (EC2, S3, IAM, Lambda)', level: 80 },
+        { name: 'Vercel', level: 85 },
+        { name: 'CI/CD Pipelines', level: 80 },
+        { name: 'Git & GitHub Actions', level: 90 },
+        { name: 'Docker', level: 78 },
         { name: 'Server Management', level: 85 },
-        { name: 'Git & GitHub', level: 90 },
-        { name: 'CI/CD Basics', level: 75 },
       ]
     },
     {
-      title: 'Design & Analytics',
-      icon: Palette,
-      color: 'text-accent-pink',
-      gradient: 'from-accent-pink/20 to-accent-pink/5',
-      skills: [
-        { name: 'Adobe Photoshop', level: 85 },
-        { name: 'Adobe Illustrator', level: 80 },
-        { name: 'Figma', level: 88 },
-        { name: 'Google Analytics', level: 82 },
-      ]
-    },
-    {
-      title: 'Network & Support',
+      title: 'IT Support',
       icon: Settings,
       color: 'text-accent-electric',
       gradient: 'from-accent-electric/20 to-accent-electric/5',
       skills: [
-        { name: 'Network Troubleshooting', level: 92 },
-        { name: 'LAN/WAN Setup', level: 88 },
-        { name: 'Hardware Installation', level: 90 },
-        { name: 'IT Service Desk', level: 95 },
+        { name: 'Network Design & Implementation', level: 88 },
+        { name: 'LAN/WAN Configuration', level: 88 },
+        { name: 'Hardware Diagnostics', level: 90 },
+        { name: 'System Administration', level: 85 },
       ]
     },
-    {
-      title: 'Tools & Methodologies',
-      icon: Database,
-      color: 'text-accent-neon',
-      gradient: 'from-accent-neon/20 to-accent-neon/5',
-      skills: [
-        { name: 'MS Office', level: 95 },
-        { name: 'Agile/Scrum', level: 80 },
-        { name: 'SharePoint', level: 85 },
-        { name: 'System Documentation', level: 90 },
-      ]
-    }
   ];
 
   useEffect(() => {

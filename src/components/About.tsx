@@ -25,19 +25,15 @@ const About = () => {
             <div className="glass rounded-2xl p-8 hover-lift">
               <h3 className="text-2xl font-semibold mb-4 text-primary">Professional Summary</h3>
               <p className="text-foreground-muted leading-relaxed mb-4">
-                I am a dedicated ICT professional with extensive experience in system development and IT support. 
-                My expertise spans across creating tailored software solutions that drive digital transformation 
-                and enhance operational efficiency.
-              </p>
-              <p className="text-foreground-muted leading-relaxed mb-4">
-                With a strong problem-solving mindset and collaborative approach, I excel in delivering 
-                innovative technology solutions that improve public service delivery. My passion lies in 
-                bridging the gap between complex technical systems and user-friendly experiences.
+                Dynamic Fullstack Engineer and ICT professional with 4+ years of experience delivering end-to-end
+                digital solutions across government, legal, and private sectors. Expertise spans full-stack web
+                development, enterprise IT infrastructure management, and user-centric design. Proven track record of
+                architecting scalable applications, optimizing system performance, and leading digital transformation
+                initiatives.
               </p>
               <p className="text-foreground-muted leading-relaxed">
-                I thrive in dynamic environments where I can leverage my technical skills to create 
-                meaningful impact, whether it's optimizing network infrastructure, developing web applications, 
-                or implementing system-wide improvements.
+                Passionate about leveraging cutting-edge technologies to solve complex business challenges while
+                ensuring robust security and exceptional user experiences.
               </p>
             </div>
 

@@ -4,26 +4,26 @@ import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 const Education = () => {
   const [selectedCert, setSelectedCert] = useState<string | null>(null);
   const education = [{
-    degree: 'B.Sc. Information Technology',
+    degree: 'Bachelor of Science in Information Technology',
     institution: 'South Eastern Kenya University',
     period: '2015-2019',
     location: 'Kitui, Kenya',
     description: 'Comprehensive program covering software development, database management, networking, and system analysis.',
-    highlights: ['Graduated with honors in Software Engineering track', 'Final year project: Network Management System for SMEs', 'Active member of Computer Science Society', 'Completed internship at Kenya Power & Lighting Company']
+    highlights: []
   }, {
-    degree: 'KCSE Grade B',
+    degree: 'Kenya Certificate of Secondary Education (KCSE) - Grade B',
     institution: 'Muhoho High School',
     period: '2011-2014',
     location: 'Kenya',
     description: 'Strong foundation in mathematics, sciences, and languages with focus on analytical thinking.',
-    highlights: ['Mathematics: A-, Physics: B+, Chemistry: B', 'Computer Studies: A (Top in class)', 'Member of Science Club and Mathematics Society', 'Represented school in inter-school programming competitions']
+    highlights: []
   }, {
-    degree: 'KCPE 345/500',
+    degree: 'Kenya Certificate of Primary Education (KCPE) - 345/500',
     institution: 'Samrose Academy',
     period: '2010',
     location: 'Kenya',
     description: 'Solid primary education foundation with excellence in science and mathematics.',
-    highlights: ['Science: 85/100, Mathematics: 78/100', 'English: 72/100, Kiswahili: 75/100', 'School prefect and peer tutor', 'Founded school computer club']
+    highlights: []
   }];
   const certifications = [{
     id: 'google-analytics',
@@ -97,12 +97,18 @@ const Education = () => {
 
                 <p className="text-foreground-muted mb-4 leading-relaxed">{edu.description}</p>
 
-                <div>
-                  
-                  <div className="grid md:grid-cols-2 gap-2">
-                    {edu.highlights.map((highlight, hIndex) => {})}
+                {edu.highlights && edu.highlights.length > 0 && (
+                  <div>
+                    <div className="grid md:grid-cols-2 gap-2">
+                      {edu.highlights.map((highlight, hIndex) => (
+                        <div key={hIndex} className="flex items-start text-sm text-foreground-muted">
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent-electric mt-2 mr-3 flex-shrink-0" />
+                          {highlight}
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>)}
           </div>
         </div>
