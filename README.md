@@ -1,73 +1,131 @@
-# Welcome to your Lovable project
+# Mike's Portfolio Website
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/784b0c48-cd75-4521-af61-eda7b1c859ae
+This is my personal portfolio website showcasing my skills, projects, and professional experience. The site is built with modern web technologies and designed to provide a clean, professional presentation of my work.
 
-## How can I edit this code?
+## Technologies Used
 
-There are several ways of editing your application.
+- **Vite** - Build tool and development server
+- **TypeScript** - Type-safe JavaScript
+- **React** - UI library for building user interfaces
+- **shadcn-ui** - Component library for consistent design
+- **Tailwind CSS** - Utility-first CSS framework
 
-**Use Lovable**
+## Getting Started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/784b0c48-cd75-4521-af61-eda7b1c859ae) and start prompting.
+### Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js (version 16 or higher)
+- npm or yarn package manager
 
-**Use your preferred IDE**
+### Installation & Development
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Follow these steps to run the project locally:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Step 1: Clone the repository
+git clone https://github.com/garymike07/mike-portflio.git
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Step 2: Navigate to the project directory
+cd mike-portflio
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Step 3: Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The development server will start at `http://localhost:5173` with hot reloading enabled.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Development Workflow
 
-**Use GitHub Codespaces**
+### Making Changes
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+You can edit this project using several methods:
 
-## What technologies are used for this project?
+**Local Development**
+- Clone the repository to your local machine
+- Use your preferred IDE (VS Code, WebStorm, etc.)
+- Make changes and commit them
+- Push changes to GitHub
 
-This project is built with:
+**GitHub Web Interface**
+- Navigate to any file in the repository
+- Click the "Edit" button (pencil icon)
+- Make your changes directly in the browser
+- Commit changes with a descriptive message
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+**GitHub Codespaces**
+- Go to the repository main page
+- Click "Code" → "Codespaces" → "New codespace"
+- Edit files in the cloud-based VS Code environment
+- Commit and push changes directly from Codespaces
 
-## How can I deploy this project?
+### Branching Strategy
 
-Simply open [Lovable](https://lovable.dev/projects/784b0c48-cd75-4521-af61-eda7b1c859ae) and click on Share -> Publish.
+When adding new features or making significant changes:
+1. Create a new branch: `git checkout -b feature-name`
+2. Make your changes
+3. Commit with descriptive messages: `git commit -m "Add new feature"`
+4. Push to GitHub: `git push origin feature-name`
+5. Create a pull request for review
 
-## Can I connect a custom domain to my Lovable project?
+## Deployment
 
-Yes, you can!
+### Build for Production
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```sh
+npm run build
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This creates an optimized production build in the `dist/` directory.
+
+### Deployment Options
+
+The site can be deployed to various platforms:
+
+- **Netlify** - Connect your GitHub repo for automatic deployments
+- **Vercel** - Zero-config deployment for React apps
+- **GitHub Pages** - Free hosting for public repositories
+- **Custom Server** - Upload the `dist/` directory to any web server
+
+### Environment Variables
+
+Create a `.env` file in the root directory for any environment-specific configuration:
+
+```env
+VITE_API_URL=https://your-api.com
+VITE_CONTACT_EMAIL=your-email@domain.com
+```
+
+## Project Structure
+
+```
+mike-portflio/
+├── src/
+│   ├── components/     # Reusable UI components
+│   ├── pages/         # Page components
+│   ├── styles/        # Global styles
+│   └── utils/         # Utility functions
+├── public/            # Static assets
+├── dist/              # Production build
+└── README.md          # This file
+```
+
+## Contributing
+
+While this is a personal portfolio, suggestions and improvements are welcome! Feel free to:
+
+1. Open an issue for bugs or feature requests
+2. Submit a pull request with improvements
+3. Share feedback on the design or functionality
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+**Note**: This portfolio was custom-built without the use of AI-powered website builders or automated tools, ensuring complete control over the design, functionality, and user experience.
