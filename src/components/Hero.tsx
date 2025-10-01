@@ -34,12 +34,14 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Profile Image Placeholder */}
+        {/* Profile Image */}
         <div className="mb-8 animate-scale-in">
           <div className="w-32 h-32 mx-auto rounded-full bg-gradient-primary p-1 hover-glow">
-            <div className="w-full h-full rounded-full bg-background-secondary flex items-center justify-center">
-              <span className="text-4xl font-bold text-primary">MK</span>
-            </div>
+            <img
+              src="/profile.jpg"
+              alt="Mike Kagera"
+              className="w-full h-full rounded-full object-cover"
+            />
           </div>
         </div>
 
@@ -71,10 +73,12 @@ const Hero = () => {
             <Download className="mr-2" size={20} />
             Download Resume
           </Button>
-          <Button variant="outline" size="lg" className="px-8 py-3 text-lg border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-            <Mail className="mr-2" size={20} />
-            Get In Touch
-          </Button>
+          <a href="mailto:wrootmike@gmail.com">
+            <Button variant="outline" size="lg" className="px-8 py-3 text-lg border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+              <Mail className="mr-2" size={20} />
+              Get In Touch
+            </Button>
+          </a>
         </div>
 
         {/* Social Links */}
