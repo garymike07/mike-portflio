@@ -236,14 +236,18 @@ const Contact = () => {
             I'm here to help transform your ideas into reality.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="btn-electric">
-              <Mail className="mr-2" size={20} />
-              Email Me Directly
-            </Button>
-            <Button variant="outline" size="lg" className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-              <Phone className="mr-2" size={20} />
-              Schedule a Call
-            </Button>
+            <a href="mailto:wrootmike@gmail.com">
+              <Button size="lg" className="btn-electric">
+                <Mail className="mr-2" size={20} />
+                Email Me Directly
+              </Button>
+            </a>
+            <a href="tel:+254792618156">
+              <Button variant="outline" size="lg" className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                <Phone className="mr-2" size={20} />
+                Schedule a Call
+              </Button>
+            </a>
           </div>
         </div>
       </div>
