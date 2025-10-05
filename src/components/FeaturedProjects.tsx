@@ -51,6 +51,22 @@ const projects = [
     roleLabel: 'Design Technologist',
     metrics: '30+ portfolio pieces | <1.5s Largest Contentful Paint',
   },
+  {
+    id: 'taxease',
+    title: 'TaxEase Compliance Portal',
+    summary:
+      'A streamlined web portal guiding small businesses through tax preparation, filings, and compliance tracking with step-by-step workflows.',
+    contributions: [
+      'Implemented guided filing wizard with contextual tips and validation at every step.',
+      'Connected financial data inputs to dynamic calculators for instant liability estimates.',
+      'Optimized responsive layouts so filers can complete workflows comfortably on mobile.',
+    ],
+    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
+    image: '/taxease-thumbnail.png',
+    url: 'https://taxease-one.vercel.app/',
+    roleLabel: 'Product Engineer',
+    metrics: '5-step guided flow | 98% task completion in user tests',
+  },
 ];
 
 const iconMap = {
