@@ -131,8 +131,8 @@ const Certificates = () => {
                         Preview
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="max-w-5xl w-full glass-intense border border-border p-0 overflow-hidden">
-                      <div className="flex flex-col max-h-[85vh]">
+                    <DialogContent className="w-[95vw] sm:w-[90vw] lg:w-[75vw] xl:w-[70vw] glass-intense border border-border p-0 overflow-hidden">
+                      <div className="flex flex-col max-h-[92vh]">
                         <header className="px-6 py-5 border-b border-border bg-background-secondary/60 backdrop-blur">
                           <h4 className="text-xl font-semibold text-foreground">{certificate.title}</h4>
                           <p className="text-sm text-foreground-muted">
@@ -143,7 +143,7 @@ const Certificates = () => {
                           <iframe
                             title={`${certificate.title} preview`}
                             src={`${certificate.file}#view=FitH`}
-                            className="h-full w-full border-none"
+                            className="h-full w-full border-none min-h-[60vh]"
                           />
                         </div>
                       </div>
