@@ -9,7 +9,6 @@ type Certificate = {
   title: string;
   issuer: string;
   year: string;
-  description: string;
   file: string;
   downloadName: string;
 };
@@ -20,8 +19,6 @@ const certificates: Certificate[] = [
     title: 'ICT Internship Certificate',
     issuer: 'Council of Legal Education',
     year: '2024',
-    description:
-      'Validates hands-on experience delivering enterprise support, SharePoint migrations, and automation scripting for 200+ staff.',
     file: '/certificates/internship.pdf',
     downloadName: 'Mike-Kagera-ICT-Internship.pdf',
   },
@@ -30,8 +27,6 @@ const certificates: Certificate[] = [
     title: 'Professional Résumé',
     issuer: 'Mike Kagera Waitindi',
     year: '2025',
-    description:
-      'Complete résumé covering technical proficiencies, major engagements, and sector-spanning accomplishments.',
     file: '/certificates/mike-resume.pdf',
     downloadName: 'Mike-Kagera-Resume.pdf',
   },
@@ -40,8 +35,6 @@ const certificates: Certificate[] = [
     title: 'BSc Information Technology',
     issuer: 'South Eastern Kenya University',
     year: '2019',
-    description:
-      'Four-year bachelor degree focusing on software engineering, database systems, networking, and systems analysis.',
     file: '/certificates/degree.pdf',
     downloadName: 'Mike-Kagera-BSc-IT-Degree.pdf',
   },
@@ -50,8 +43,6 @@ const certificates: Certificate[] = [
     title: 'KCSE Certificate',
     issuer: 'Muhoho High School',
     year: '2014',
-    description:
-      'Secondary education certificate with Grade B, emphasizing analytical disciplines and foundational sciences.',
     file: '/certificates/kcse.pdf',
     downloadName: 'Mike-Kagera-KCSE.pdf',
   },
@@ -112,11 +103,11 @@ const Certificates = () => {
               className="group glass rounded-3xl overflow-hidden flex flex-col animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="relative h-56 bg-background-secondary">
+              <div className="relative h-56 bg-background-secondary overflow-hidden">
                 <iframe
                   title={`${certificate.title} thumbnail`}
                   src={`${certificate.file}#page=1&zoom=120`}
-                  className="absolute inset-0 h-full w-full border-none pointer-events-none scale-105 origin-top"
+                  className="absolute inset-0 h-full w-full border-none pointer-events-none scale-110 origin-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 glass-intense rounded-full text-xs uppercase tracking-wide text-foreground-muted">
@@ -132,8 +123,6 @@ const Certificates = () => {
                     {certificate.issuer} • {certificate.year}
                   </p>
                 </div>
-                <p className="text-foreground-muted leading-relaxed">{certificate.description}</p>
-
                 <div className="mt-auto flex flex-col gap-3 sm:flex-row">
                   <Dialog>
                     <DialogTrigger asChild>
@@ -142,15 +131,15 @@ const Certificates = () => {
                         Preview
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="max-w-4xl w-full glass-intense border border-border">
-                      <div className="space-y-4">
-                        <header>
+                    <DialogContent className="max-w-5xl w-full glass-intense border border-border p-0 overflow-hidden">
+                      <div className="flex flex-col max-h-[85vh]">
+                        <header className="px-6 py-5 border-b border-border bg-background-secondary/60 backdrop-blur">
                           <h4 className="text-xl font-semibold text-foreground">{certificate.title}</h4>
                           <p className="text-sm text-foreground-muted">
                             {certificate.issuer} • {certificate.year}
                           </p>
                         </header>
-                        <div className="aspect-[3/4] w-full bg-background-secondary rounded-xl overflow-hidden">
+                        <div className="flex-1 overflow-auto bg-background-secondary">
                           <iframe
                             title={`${certificate.title} preview`}
                             src={`${certificate.file}#view=FitH`}

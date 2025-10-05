@@ -5,6 +5,33 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 
 const Contact = () => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+
+    const firstName = (formData.get('firstName') as string | null)?.trim() ?? '';
+    const lastName = (formData.get('lastName') as string | null)?.trim() ?? '';
+    const email = (formData.get('email') as string | null)?.trim() ?? '';
+    const subjectInput = (formData.get('subject') as string | null)?.trim() ?? '';
+    const message = (formData.get('message') as string | null)?.trim() ?? '';
+
+    const fullName = [firstName, lastName].filter(Boolean).join(' ');
+    const subject = subjectInput || `New message from ${fullName || 'portfolio visitor'}`;
+
+    const bodyLines = [
+      fullName ? `Name: ${fullName}` : null,
+      email ? `Email: ${email}` : null,
+      subjectInput ? `Subject: ${subjectInput}` : null,
+      '',
+      'Message:',
+      message || '(No message provided)',
+    ].filter((line) => line !== null) as string[];
+
+    const mailto = `mailto:wrootmike@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    window.location.href = mailto;
+    event.currentTarget.reset();
+  };
+
   const contactInfo = [
     {
       icon: Phone,
@@ -40,9 +67,9 @@ const Contact = () => {
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: 'https://linkedin.com/in/mr-mike-654bb2344',
+      href: 'https://www.linkedin.com/in/mike-waitindi-654bb2344/',
       color: 'text-accent-electric',
-      username: 'mr-mike-654bb2344'
+      username: 'mike-waitindi-654bb2344'
     },
     {
       icon: Github,
@@ -88,7 +115,7 @@ const Contact = () => {
               <h3 className="text-2xl font-semibold text-foreground">Send a Message</h3>
             </div>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
@@ -97,6 +124,8 @@ const Contact = () => {
                   <Input 
                     type="text" 
                     placeholder="John"
+                    name="firstName"
+                    required
                     className="bg-background-tertiary border-border focus:border-primary"
                   />
                 </div>
@@ -107,6 +136,7 @@ const Contact = () => {
                   <Input 
                     type="text" 
                     placeholder="Doe"
+                    name="lastName"
                     className="bg-background-tertiary border-border focus:border-primary"
                   />
                 </div>
@@ -119,6 +149,8 @@ const Contact = () => {
                 <Input 
                   type="email" 
                   placeholder="john.doe@example.com"
+                  name="email"
+                  required
                   className="bg-background-tertiary border-border focus:border-primary"
                 />
               </div>
@@ -130,6 +162,7 @@ const Contact = () => {
                 <Input 
                   type="text" 
                   placeholder="Project Collaboration Opportunity"
+                  name="subject"
                   className="bg-background-tertiary border-border focus:border-primary"
                 />
               </div>
@@ -141,6 +174,8 @@ const Contact = () => {
                 <Textarea 
                   placeholder="Tell me about your project or how I can help you..."
                   rows={5}
+                  name="message"
+                  required
                   className="bg-background-tertiary border-border focus:border-primary resize-none"
                 />
               </div>
