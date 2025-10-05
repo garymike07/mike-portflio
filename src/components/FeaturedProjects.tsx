@@ -67,6 +67,22 @@ const projects = [
     roleLabel: 'Product Engineer',
     metrics: '5-step guided flow | 98% task completion in user tests',
   },
+  {
+    id: 'pharma-three-rho',
+    title: 'Pharma Distribution Dashboard',
+    summary:
+      'Operational dashboard for pharmaceutical distributors with inventory visibility, cold-chain monitoring, and order fulfillment insights.',
+    contributions: [
+      'Assembled KPI-driven overview combining real-time stock levels and shipment status cards.',
+      'Built interactive filtering and search to slice inventory by region, condition, and supplier.',
+      'Implemented notification surface for compliance alerts and temperature excursions.',
+    ],
+    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'TanStack Query'],
+    image: '/pharma-thumbnail.png',
+    url: 'https://pharma-three-rho.vercel.app/',
+    roleLabel: 'Data Experience Lead',
+    metrics: '12 live KPIs | 3 regional drilldowns | Real-time alert feed',
+  },
 ];
 
 const iconMap = {
