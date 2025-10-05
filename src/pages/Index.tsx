@@ -6,6 +6,7 @@ import Skills from '@/components/Skills';
 import Experience from '@/components/Experience';
 import FeaturedProjects from '@/components/FeaturedProjects';
 import Education from '@/components/Education';
+import Certificates from '@/components/Certificates';
 import Contact from '@/components/Contact';
 const Index = () => {
   return <div className="min-h-screen bg-background">
@@ -17,6 +18,7 @@ const Index = () => {
         <Experience />
         <FeaturedProjects />
         <Education />
+        <Certificates />
         <Contact />
       </main>
       
