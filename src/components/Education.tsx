@@ -1,59 +1,8 @@
-import React, { useState } from 'react';
-import { GraduationCap, Award, ExternalLink, Calendar, MapPin, Star } from 'lucide-react';
+import React from 'react';
+import { GraduationCap, Award, ExternalLink, Calendar, MapPin } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { educationHistory, professionalCertifications } from '@/data/education';
 const Education = () => {
-  const [selectedCert, setSelectedCert] = useState<string | null>(null);
-  const education = [{
-    degree: 'Bachelor of Science in Information Technology',
-    institution: 'South Eastern Kenya University',
-    period: '2015-2019',
-    location: 'Kitui, Kenya',
-    description: 'Comprehensive program covering software development, database management, networking, and system analysis.',
-    highlights: []
-  }, {
-    degree: 'Kenya Certificate of Secondary Education (KCSE) - Grade B',
-    institution: 'Muhoho High School',
-    period: '2011-2014',
-    location: 'Kenya',
-    description: 'Strong foundation in mathematics, sciences, and languages with focus on analytical thinking.',
-    highlights: []
-  }, {
-    degree: 'Kenya Certificate of Primary Education (KCPE) - 345/500',
-    institution: 'Samrose Academy',
-    period: '2010',
-    location: 'Kenya',
-    description: 'Solid primary education foundation with excellence in science and mathematics.',
-    highlights: []
-  }];
-  const certifications = [{
-    id: 'google-analytics',
-    title: 'Google Analytics for Beginners',
-    issuer: 'Google',
-    date: '2023',
-    credentialId: 'GA-2023-MKW-001',
-    skills: ['Web Analytics', 'Data Analysis', 'Digital Marketing'],
-    description: 'Comprehensive certification covering GA4, conversion tracking, and advanced reporting.',
-    image: '/api/placeholder/300/200' // Placeholder for cert image
-  }, {
-    id: 'freecodecamp-responsive',
-    title: 'Responsive Web Design',
-    issuer: 'freeCodeCamp',
-    date: '2022',
-    hours: '300+ hours',
-    credentialId: 'RWD-2022-MKW-001',
-    skills: ['HTML5', 'CSS3', 'Responsive Design', 'Accessibility'],
-    description: 'Hands-on certification with 5 responsive web design projects and modern CSS techniques.',
-    image: '/api/placeholder/300/200'
-  }, {
-    id: 'aws-cloud-practitioner',
-    title: 'AWS Cloud Practitioner',
-    issuer: 'Amazon Web Services',
-    date: 'In Progress',
-    expectedDate: 'Q2 2024',
-    skills: ['Cloud Computing', 'AWS Services', 'Cloud Security', 'Cost Optimization'],
-    description: 'Foundation-level certification covering AWS cloud concepts, services, and best practices.',
-    image: '/api/placeholder/300/200'
-  }];
   return <section id="education" className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
@@ -70,9 +19,12 @@ const Education = () => {
         <div className="mb-20">
           <h3 className="text-2xl font-semibold text-center mb-12 text-primary">Academic Background</h3>
           <div className="space-y-8">
-            {education.map((edu, index) => <div key={index} className={`glass rounded-2xl p-8 hover-lift animate-fade-in-up`} style={{
-            animationDelay: `${index * 0.2}s`
-          }}>
+            {educationHistory.map((edu, index) => (
+              <div
+                key={edu.degree}
+                className="glass rounded-2xl p-8 hover-lift animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
                   <div className="flex items-center mb-4 lg:mb-0">
                     <div className="p-3 rounded-lg bg-gradient-to-br from-accent-electric/20 to-accent-electric/5 mr-4">
@@ -100,8 +52,8 @@ const Education = () => {
                 {edu.highlights && edu.highlights.length > 0 && (
                   <div>
                     <div className="grid md:grid-cols-2 gap-2">
-                      {edu.highlights.map((highlight, hIndex) => (
-                        <div key={hIndex} className="flex items-start text-sm text-foreground-muted">
+                      {edu.highlights.map((highlight) => (
+                        <div key={highlight} className="flex items-start text-sm text-foreground-muted">
                           <span className="w-1.5 h-1.5 rounded-full bg-accent-electric mt-2 mr-3 flex-shrink-0" />
                           {highlight}
                         </div>
@@ -109,7 +61,8 @@ const Education = () => {
                     </div>
                   </div>
                 )}
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
 
@@ -117,7 +70,7 @@ const Education = () => {
         <div>
           <h3 className="text-2xl font-semibold text-center mb-12 text-primary">Professional Certifications</h3>
           <div className="cert-grid">
-            {certifications.map((cert, index) => <Dialog key={cert.id}>
+            {professionalCertifications.map((cert, index) => <Dialog key={cert.id}>
                 <DialogTrigger asChild>
                   <div className={`cert-card animate-fade-in-up cursor-pointer`} style={{
                 animationDelay: `${index * 0.1}s`

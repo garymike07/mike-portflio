@@ -1,86 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Code, Cloud, Palette, Settings, Database, Globe } from 'lucide-react';
-
+import { coreCompetencies, skillCategories } from '@/data/skills';
+import { cn } from '@/lib/utils';
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-
-  const skillCategories = [
-    {
-      title: 'Frontend',
-      icon: Globe,
-      color: 'text-accent-neon',
-      gradient: 'from-accent-neon/20 to-accent-neon/5',
-      skills: [
-        { name: 'React', level: 90 },
-        { name: 'Next.js', level: 85 },
-        { name: 'JavaScript (ES6+)', level: 90 },
-        { name: 'HTML5 & CSS3', level: 95 },
-        { name: 'Bootstrap', level: 88 },
-        { name: 'Responsive Design', level: 92 },
-        { name: 'PWA', level: 80 },
-        { name: 'Performance Optimization', level: 88 },
-      ]
-    },
-    {
-      title: 'Backend',
-      icon: Code,
-      color: 'text-accent-electric',
-      gradient: 'from-accent-electric/20 to-accent-electric/5',
-      skills: [
-        { name: 'Node.js', level: 85 },
-        { name: 'Python', level: 85 },
-        { name: 'Java', level: 80 },
-        { name: 'Spring Boot', level: 75 },
-        { name: 'RESTful APIs', level: 90 },
-        { name: 'GraphQL', level: 75 },
-        { name: 'Microservices', level: 75 },
-        { name: 'Auth (Authentication & Authorization)', level: 85 },
-      ]
-    },
-    {
-      title: 'Databases',
-      icon: Database,
-      color: 'text-accent-neon',
-      gradient: 'from-accent-neon/20 to-accent-neon/5',
-      skills: [
-        { name: 'MySQL', level: 85 },
-        { name: 'PostgreSQL', level: 85 },
-        { name: 'Supabase', level: 80 },
-        { name: 'Firebase', level: 80 },
-        { name: 'Convex', level: 70 },
-        { name: 'MongoDB', level: 80 },
-        { name: 'Database Optimization', level: 80 },
-        { name: 'Data Migration & Recovery', level: 78 },
-      ]
-    },
-    {
-      title: 'Cloud & DevOps',
-      icon: Cloud,
-      color: 'text-accent-purple',
-      gradient: 'from-accent-purple/20 to-accent-purple/5',
-      skills: [
-        { name: 'AWS (EC2, S3, IAM, Lambda)', level: 80 },
-        { name: 'Vercel', level: 85 },
-        { name: 'CI/CD Pipelines', level: 80 },
-        { name: 'Git & GitHub Actions', level: 90 },
-        { name: 'Docker', level: 78 },
-        { name: 'Server Management', level: 85 },
-      ]
-    },
-    {
-      title: 'IT Support',
-      icon: Settings,
-      color: 'text-accent-electric',
-      gradient: 'from-accent-electric/20 to-accent-electric/5',
-      skills: [
-        { name: 'Network Design & Implementation', level: 88 },
-        { name: 'LAN/WAN Configuration', level: 88 },
-        { name: 'Hardware Diagnostics', level: 90 },
-        { name: 'System Administration', level: 85 },
-      ]
-    },
-  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -114,16 +37,24 @@ const Skills = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => {
-            const IconComponent = category.icon;
+            const Icon = category.icon;
             return (
-              <div 
+              <div
                 key={category.title}
-                className={`skill-card bg-gradient-to-br ${category.gradient} animate-fade-in-up`}
+                className={cn(
+                  "group skill-card bg-gradient-to-br animate-fade-in-up",
+                  category.gradientClass
+                )}
                 style={{ animationDelay: `${categoryIndex * 0.2}s` }}
               >
                 <div className="flex items-center mb-6">
-                  <div className={`p-3 rounded-lg bg-gradient-to-br ${category.gradient} mr-4`}>
-                    <IconComponent className={category.color} size={24} />
+                  <div
+                    className={cn(
+                      "p-3 rounded-lg bg-gradient-to-br mr-4",
+                      category.gradientClass
+                    )}
+                  >
+                    <Icon className={category.colorClass} size={24} />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground">{category.title}</h3>
                 </div>
@@ -159,14 +90,10 @@ const Skills = () => {
         <div className="mt-16 glass rounded-2xl p-8 text-center">
           <h3 className="text-2xl font-semibold mb-4 text-primary">Core Competencies</h3>
           <div className="flex flex-wrap justify-center gap-3">
-            {[
-              'Full-Stack Development', 'Cloud Architecture', 'Network Administration', 
-              'System Integration', 'Digital Transformation', 'Agile Methodologies',
-              'UI/UX Design', 'Database Management', 'DevOps Practices', 'Technical Leadership'
-            ].map((competency, index) => (
+            {coreCompetencies.map((competency, index) => (
               <span 
                 key={competency}
-                className={`px-4 py-2 glass rounded-full text-sm hover-glow cursor-default animate-bounce-in`}
+                className="px-4 py-2 glass rounded-full text-sm hover-glow cursor-default animate-bounce-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {competency}

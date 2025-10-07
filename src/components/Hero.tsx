@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Download, Mail, Github, Linkedin, ChevronDown } from 'lucide-react';
+import { Download, Mail, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { heroProfile } from '@/data/hero';
+import { socialLinks } from '@/data/contact';
 
 const Hero = () => {
   const [displayedText, setDisplayedText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
-  const fullText = 'Fullstack developer | ICT Officer';
+  const fullText = heroProfile.title;
 
   useEffect(() => {
     if (currentIndex < fullText.length) {
@@ -37,19 +39,24 @@ const Hero = () => {
         {/* Profile Image */}
         <div className="mb-8 animate-scale-in">
           <div className="w-32 h-32 mx-auto rounded-full bg-gradient-primary p-1 hover-glow">
-            <img
-              src="/profile.jpg"
-              alt="Mike Kagera"
-              className="w-full h-full rounded-full object-cover"
-            />
+            <picture>
+              <source srcSet={heroProfile.profileImageWebp} type="image/webp" />
+              <source srcSet={heroProfile.profileImage} type="image/jpeg" />
+              <img
+                src={heroProfile.profileImage}
+                alt="Mike Kagera"
+                className="w-full h-full rounded-full object-cover"
+                loading="lazy"
+              />
+            </picture>
           </div>
         </div>
 
         {/* Main Heading */}
         <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up">
-          <span className="block text-foreground">Mike Kagera</span>
+          <span className="block text-foreground">{heroProfile.name}</span>
           <span className="block bg-gradient-primary bg-clip-text text-transparent animate-glow-pulse">
-            Waitindi
+            {heroProfile.surname}
           </span>
         </h1>
 
@@ -62,18 +69,22 @@ const Hero = () => {
         </div>
 
         {/* Bio Text */}
-        <p className="text-lg md:text-xl text-foreground-subtle max-w-2xl mx-auto mb-12 animate-fade-in-up" style={{animationDelay: '1s'}}>
-          Passionate ICT professional specializing in system development, network solutions, and digital transformation. 
-          Dedicated to improving public service delivery through innovative technology solutions.
+        <p
+          className="text-lg md:text-xl text-foreground-subtle max-w-2xl mx-auto mb-12 animate-fade-in-up"
+          style={{ animationDelay: '1s' }}
+        >
+          {heroProfile.bio}
         </p>
 
         {/* Call to Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in-up" style={{animationDelay: '1.5s'}}>
-          <Button size="lg" className="btn-electric px-8 py-3 text-lg font-semibold">
-            <Download className="mr-2" size={20} />
-            Download Resume
+          <Button size="lg" className="btn-electric px-8 py-3 text-lg font-semibold" asChild>
+            <a href={heroProfile.resumeLink} download>
+              <Download className="mr-2" size={20} />
+              Download Resume
+            </a>
           </Button>
-          <a href="mailto:wrootmike@gmail.com">
+          <a href={`mailto:${heroProfile.contactEmail}`}>
             <Button variant="outline" size="lg" className="px-8 py-3 text-lg border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
               <Mail className="mr-2" size={20} />
               Get In Touch
@@ -83,22 +94,20 @@ const Hero = () => {
 
         {/* Social Links */}
         <div className="flex justify-center space-x-6 mb-16 animate-fade-in-up" style={{animationDelay: '2s'}}>
-          <a 
-            href="https://linkedin.com/in/mr-mike-654bb2344" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="p-3 glass rounded-full hover-glow transition-all"
-          >
-            <Linkedin size={24} className="text-primary" />
-          </a>
-          <a 
-            href="https://github.com/garymike07" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="p-3 glass rounded-full hover-glow transition-all"
-          >
-            <Github size={24} className="text-primary" />
-          </a>
+          {socialLinks.map((social) => {
+            const Icon = social.icon;
+            return (
+              <a
+                key={social.href}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 glass rounded-full hover-glow transition-all"
+              >
+                <Icon size={24} className="text-primary" />
+              </a>
+            );
+          })}
         </div>
 
         {/* Scroll Indicator */}

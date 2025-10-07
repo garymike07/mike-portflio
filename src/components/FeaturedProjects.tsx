@@ -1,89 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, ExternalLink, Code2, Users, Rocket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-const projects = [
-  {
-    id: 'techlearn',
-    title: 'TechLearn LMS Platform',
-    summary:
-      'An interactive learning management system providing curated tech courses, instructor dashboards, and progress tracking for students.',
-    contributions: [
-      'Architected responsive course browsing experience with animated hero and trackable milestones.',
-      'Integrated reusable UI patterns powered by shadcn/ui for consistent design language.',
-      'Optimized content delivery for fast navigation across modules and lessons.',
-    ],
-    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
-    image: '/techlearn-thumbnail.png',
-    url: 'https://techlearn-pi.vercel.app/',
-    roleLabel: 'Product Lead',
-    metrics: '1k+ demo visitors | Sub-second route transitions',
-  },
-  {
-    id: 'network-three-tau',
-    title: 'Network Infrastructure Showcase',
-    summary:
-      'A modern landing experience highlighting enterprise network services, on-prem support, and managed cloud monitoring.',
-    contributions: [
-      'Crafted narrative-driven sections weaving together services, testimonials, and call-to-actions.',
-      'Implemented gradient-heavy glassmorphism system for premium visual storytelling.',
-      'Delivered accessibility-friendly layout with keyboard and screen reader support.',
-    ],
-    techStack: ['React', 'TypeScript', 'Tailwind CSS'],
-    image: '/network-three-tau-thumbnail.png',
-    url: 'https://network-three-tau.vercel.app/',
-    roleLabel: 'Lead Frontend Engineer',
-    metrics: '4 service verticals | 100% Lighthouse accessibility score',
-  },
-  {
-    id: 'artful-bice',
-    title: 'Artful Creative Studio',
-    summary:
-      'A bold portfolio for a creative studio featuring gallery reels, service breakdowns, and brand storytelling moments.',
-    contributions: [
-      'Designed immersive hero transitions with layered parallax and spotlight effects.',
-      'Built modular content blocks enabling rapid iteration on campaigns and offerings.',
-      'Optimized imagery with lazy loading strategies to keep interactions smooth.',
-    ],
-    techStack: ['React', 'Tailwind CSS', 'Framer Motion'],
-    image: '/artful-bice-thumbnail.png',
-    url: 'https://artful-bice.vercel.app/',
-    roleLabel: 'Design Technologist',
-    metrics: '30+ portfolio pieces | <1.5s Largest Contentful Paint',
-  },
-  {
-    id: 'taxease',
-    title: 'TaxEase Compliance Portal',
-    summary:
-      'A streamlined web portal guiding small businesses through tax preparation, filings, and compliance tracking with step-by-step workflows.',
-    contributions: [
-      'Implemented guided filing wizard with contextual tips and validation at every step.',
-      'Connected financial data inputs to dynamic calculators for instant liability estimates.',
-      'Optimized responsive layouts so filers can complete workflows comfortably on mobile.',
-    ],
-    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
-    image: '/taxease-thumbnail.png',
-    url: 'https://taxease-one.vercel.app/',
-    roleLabel: 'Product Engineer',
-    metrics: '5-step guided flow | 98% task completion in user tests',
-  },
-  {
-    id: 'pharma-three-rho',
-    title: 'Pharma Distribution Dashboard',
-    summary:
-      'Operational dashboard for pharmaceutical distributors with inventory visibility, cold-chain monitoring, and order fulfillment insights.',
-    contributions: [
-      'Assembled KPI-driven overview combining real-time stock levels and shipment status cards.',
-      'Built interactive filtering and search to slice inventory by region, condition, and supplier.',
-      'Implemented notification surface for compliance alerts and temperature excursions.',
-    ],
-    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'TanStack Query'],
-    image: '/pharma-thumbnail.png',
-    url: 'https://pharma-three-rho.vercel.app/',
-    roleLabel: 'Data Experience Lead',
-    metrics: '12 live KPIs | 3 regional drilldowns | Real-time alert feed',
-  },
-];
+import { featuredProjects } from '@/data/projects';
 
 const iconMap = {
   contributions: Code2,
@@ -107,7 +25,7 @@ const FeaturedProjects = () => {
         </div>
 
         <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">
-          {projects.map((project, index) => {
+          {featuredProjects.map((project, index) => {
             const ContributionIcon = iconMap.contributions;
             const TechIcon = iconMap.techStack;
             const MetricIcon = iconMap.metrics;
@@ -119,12 +37,16 @@ const FeaturedProjects = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="relative overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={`${project.title} thumbnail`}
-                    className="h-56 w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
-                  />
+                  <picture>
+                    <source srcSet={project.imageWebp} type="image/webp" />
+                    <source srcSet={project.image} type="image/png" />
+                    <img
+                      src={project.image}
+                      alt={`${project.title} thumbnail`}
+                      className="h-56 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </picture>
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="absolute top-4 right-4">
                     <span className="px-3 py-1 glass-intense rounded-full text-xs uppercase tracking-wide text-foreground-muted">

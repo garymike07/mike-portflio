@@ -1,37 +1,55 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Home, User, Code, Briefcase, GraduationCap, Mail, Layers, ScrollText } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-const NAV_ITEMS = [
-  { id: 'home', label: 'Home', icon: Home },
-  { id: 'about', label: 'About', icon: User },
-  { id: 'skills', label: 'Skills', icon: Code },
-  { id: 'experience', label: 'Experience', icon: Briefcase },
-  { id: 'projects', label: 'Projects', icon: Layers },
-  { id: 'education', label: 'Education', icon: GraduationCap },
-  { id: 'certificates', label: 'Certificates', icon: ScrollText },
-  { id: 'contact', label: 'Contact', icon: Mail },
-];
+import { navigationItems } from '@/data/navigation';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = NAV_ITEMS.map(item => document.getElementById(item.id));
+    if (typeof window === 'undefined') {
+      return undefined;
+    }
+
+    const sections = navigationItems.map((item) => document.getElementById(item.id));
+    let frameId = 0;
+
+    const updateFromScroll = () => {
+      frameId = 0;
+      const viewportThreshold = 120;
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
-        if (section && section.getBoundingClientRect().top <= 120) {
-          setActiveSection(NAV_ITEMS[i].id);
+        if (section && section.getBoundingClientRect().top <= viewportThreshold) {
+          const nextId = navigationItems[i].id;
+          setActiveSection((prev) => (prev === nextId ? prev : nextId));
           break;
         }
       }
+
+      const doc = document.documentElement;
+      const maxScroll = doc.scrollHeight - window.innerHeight;
+      const nextProgress = maxScroll > 0 ? Math.min(100, (window.scrollY / maxScroll) * 100) : 0;
+      setScrollProgress(nextProgress);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => {
+      if (frameId) {
+        window.cancelAnimationFrame(frameId);
+      }
+      frameId = window.requestAnimationFrame(updateFromScroll);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    updateFromScroll();
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (frameId) {
+        window.cancelAnimationFrame(frameId);
+      }
+    };
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -57,7 +75,7 @@ const Navigation = () => {
             {/* Desktop Menu */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                {NAV_ITEMS.map((item) => {
+                {navigationItems.map((item) => {
                   const IconComponent = item.icon;
                   return (
                     <button
@@ -96,7 +114,7 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         <div className={`md:hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
           <div className="px-2 pt-2 pb-3 space-y-1 glass-intense border-t border-border">
-            {NAV_ITEMS.map((item) => {
+            {navigationItems.map((item) => {
               const IconComponent = item.icon;
               return (
                 <button
@@ -119,11 +137,9 @@ const Navigation = () => {
 
       {/* Scroll Progress Indicator */}
       <div className="fixed top-16 left-0 right-0 z-40 h-1 bg-background-secondary">
-        <div 
+        <div
           className="h-full bg-gradient-primary transition-all duration-300"
-          style={{
-            width: `${Math.min(100, (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100)}%`
-          }}
+          style={{ width: `${scrollProgress}%` }}
         />
       </div>
     </>
