@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { navigationItems } from '@/data/navigation';
+import { heroProfile } from '@/data/hero';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,8 +61,12 @@ const Navigation = () => {
     setIsOpen(false);
   };
 
+  const roles = heroProfile.title.split('|').map((segment) => segment.trim());
+  const badges = [...roles, heroProfile.location];
+
   return (
     <>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       {/* Desktop Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass-intense">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -70,6 +75,16 @@ const Navigation = () => {
               <span className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
                 Mike K. Waitindi
               </span>
+              <div className="mt-2 hidden md:flex flex-wrap items-center gap-2 text-xs text-foreground-muted">
+                {badges.map((badge) => (
+                  <span
+                    key={badge}
+                    className="rounded-full border border-border/70 bg-background-secondary/70 px-2.5 py-1 leading-none"
+                  >
+                    {badge}
+                  </span>
+                ))}
+              </div>
             </div>
 
             {/* Desktop Menu */}

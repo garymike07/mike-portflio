@@ -22,7 +22,7 @@ export const Section = React.forwardRef<HTMLElement, SectionProps>(
       id={id}
       ref={ref}
       className={cn(
-        "relative py-24 sm:py-28",
+        "relative py-24 sm:py-28 scroll-mt-24 lg:scroll-mt-32",
         "before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-primary/40 before:to-transparent",
         className,
       )}

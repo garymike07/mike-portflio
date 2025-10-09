@@ -11,7 +11,7 @@ import Contact from '@/components/Contact';
 const Index = () => {
   return <div className="min-h-screen bg-background">
       <Navigation />
-      <main>
+      <main id="main-content" className="space-y-24 sm:space-y-28 lg:space-y-32">
         <Hero />
         <About />
         <Skills />
