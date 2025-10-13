@@ -13,57 +13,6 @@ export type Project = {
 
 export const featuredProjects: Project[] = [
   {
-    id: "techlearn",
-    title: "TechLearn LMS Platform",
-    summary:
-      "An interactive learning management system providing curated tech courses, instructor dashboards, and progress tracking for students.",
-    contributions: [
-      "Architected responsive course browsing experience with animated hero and trackable milestones.",
-      "Integrated reusable UI patterns powered by shadcn/ui for consistent design language.",
-      "Optimized content delivery for fast navigation across modules and lessons.",
-    ],
-    techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-    image: "/techlearn-thumbnail.png",
-    imageWebp: "/techlearn-thumbnail.webp",
-    url: "https://techlearn-pi.vercel.app/",
-    roleLabel: "Product Lead",
-    metrics: "1k+ demo visitors | Sub-second route transitions",
-  },
-  {
-    id: "network-three-tau",
-    title: "Network Infrastructure Showcase",
-    summary:
-      "A modern landing experience highlighting enterprise network services, on-prem support, and managed cloud monitoring.",
-    contributions: [
-      "Crafted narrative-driven sections weaving together services, testimonials, and call-to-actions.",
-      "Implemented gradient-heavy glassmorphism system for premium visual storytelling.",
-      "Delivered accessibility-friendly layout with keyboard and screen reader support.",
-    ],
-    techStack: ["React", "TypeScript", "Tailwind CSS"],
-    image: "/network-three-tau-thumbnail.png",
-    imageWebp: "/network-three-tau-thumbnail.webp",
-    url: "https://network-three-tau.vercel.app/",
-    roleLabel: "Lead Frontend Engineer",
-    metrics: "4 service verticals | 100% Lighthouse accessibility score",
-  },
-  {
-    id: "artful-bice",
-    title: "Artful Creative Studio",
-    summary:
-      "A bold portfolio for a creative studio featuring gallery reels, service breakdowns, and brand storytelling moments.",
-    contributions: [
-      "Designed immersive hero transitions with layered parallax and spotlight effects.",
-      "Built modular content blocks enabling rapid iteration on campaigns and offerings.",
-      "Optimized imagery with lazy loading strategies to keep interactions smooth.",
-    ],
-    techStack: ["React", "Tailwind CSS", "Framer Motion"],
-    image: "/artful-bice-thumbnail.png",
-    imageWebp: "/artful-bice-thumbnail.webp",
-    url: "https://artful-bice.vercel.app/",
-    roleLabel: "Design Technologist",
-    metrics: "30+ portfolio pieces | <1.5s Largest Contentful Paint",
-  },
-  {
     id: "taxease",
     title: "TaxEase Compliance Portal",
     summary:
@@ -81,20 +30,20 @@ export const featuredProjects: Project[] = [
     metrics: "5-step guided flow | 98% task completion in user tests",
   },
   {
-    id: "pharma-three-rho",
-    title: "Pharma Distribution Dashboard",
+    id: "net-ten",
+    title: "Net Ten Digital Services",
     summary:
-      "Operational dashboard for pharmaceutical distributors with inventory visibility, cold-chain monitoring, and order fulfillment insights.",
+      "A polished services microsite spotlighting managed network support, cybersecurity readiness, and rapid response capabilities for Kenyan SMEs.",
     contributions: [
-      "Assembled KPI-driven overview combining real-time stock levels and shipment status cards.",
-      "Built interactive filtering and search to slice inventory by region, condition, and supplier.",
-      "Implemented notification surface for compliance alerts and temperature excursions.",
+      "Implemented scroll-triggered storytelling that guides visitors through each service pillar.",
+      "Crafted high-contrast hero and CTA sections to drive consultation requests.",
+      "Optimized responsive layouts to maintain clarity across desktop, tablet, and mobile breakpoints.",
     ],
-    techStack: ["React", "TypeScript", "Tailwind CSS", "TanStack Query"],
-    image: "/pharma-thumbnail.png",
-    imageWebp: "/pharma-thumbnail.webp",
-    url: "https://pharma-three-rho.vercel.app/",
-    roleLabel: "Data Experience Lead",
-    metrics: "12 live KPIs | 3 regional drilldowns | Real-time alert feed",
+    techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+    image: "/placeholder.svg",
+    imageWebp: "/placeholder.svg",
+    url: "https://net-ten-delta.vercel.app/",
+    roleLabel: "Lead Frontend Engineer",
+    metrics: "3 core service tracks | Contact CTA above-the-fold",
   },
 ];
